@@ -3588,11 +3588,11 @@ def test_np_einsum():
 @use_np
 def test_np_diagflat():
     class TestDiagflat(HybridBlock):
-        def __init__(self, k = 0):
+        def __init__(self, k=0):
             super(TestDiagflat,self).__init__()
             self._k = k
         def hybrid_forward(self,F,a):
-            return F.np.diagflat(a,k = self._k)
+            return F.np.diagflat(a, k=self._k)
     shapes = [(2,),5 , (1,5), (2,2), (2,5), (3,3), (4,3),(4,4,5)] # test_shapes, remember to include zero-dim shape and zero-size shapes
     dtypes = [np.int8, np.uint8, np.int32, np.int64, np.float16, np.float32, np.float64] # remember to include all meaningful data types for the operator
     range_k = 6
