@@ -4474,7 +4474,7 @@ def diagflat(arr, k=0):
     Input data, which is flattened and set as the k-th diagonal of the output.
     k : int, optional
     
-    Diagonal to set; 0, the default, corresponds to the “main” diagonal, a positive (negative) k giving the number of the diagonal above (below) the main.
+    Diagonal to set; 0, the default, corresponds to the "main" diagonal, a positive (negative) k giving the number of the diagonal above (below) the main.
     
     Returns:    
     
