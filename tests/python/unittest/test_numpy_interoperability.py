@@ -1084,6 +1084,35 @@ def _add_workload_nonzero():
     OpArgMngr.add_workload('nonzero', np.array([False, False, False], dtype=np.bool_))
     OpArgMngr.add_workload('nonzero', np.array([True, False, False], dtype=np.bool_))
 
+def _add_workload_diagflat():
+    def get_mat(n):
+        data = _np.arange(n)
+        data = _np.add.outer(data,data)
+        return data
+
+    A = np.array([[1,2],[3,4],[5,6]])
+    vals = (100 * np.arange(5)).astype('l')
+    vals_c = (100 * np.array(get_mat(5)) + 1).astype('l')
+    vals_f = _np.array((100 * get_mat(5) + 1), order = 'F', dtype = 'l')
+    vals_f = np.array(vals_f)
+    
+    OpArgMngr.add_workload('diagflat', A, k= 2)
+    OpArgMngr.add_workload('diagflat', A, k= 1)
+    OpArgMngr.add_workload('diagflat', A, k= 0)
+    OpArgMngr.add_workload('diagflat', A, k= -1)
+    OpArgMngr.add_workload('diagflat', A, k= -2)
+    OpArgMngr.add_workload('diagflat', A, k= -3)
+    OpArgMngr.add_workload('diagflat', vals, k= 0)
+    OpArgMngr.add_workload('diagflat', vals, k= 2)
+    OpArgMngr.add_workload('diagflat', vals, k= -2)
+    OpArgMngr.add_workload('diagflat', vals_c, k= 0)
+    OpArgMngr.add_workload('diagflat', vals_c, k= 2)
+    OpArgMngr.add_workload('diagflat', vals_c, k= -2)
+    OpArgMngr.add_workload('diagflat', vals_f, k= 0)
+    OpArgMngr.add_workload('diagflat', vals_f, k= 2)
+    OpArgMngr.add_workload('diagflat', vals_f, k= -2)
+
+
 
 @use_np
 def _prepare_workloads():
@@ -1190,6 +1219,7 @@ def _prepare_workloads():
     _add_workload_greater_equal(array_pool)
     _add_workload_less(array_pool)
     _add_workload_less_equal(array_pool)
+    _add_wordload_diagflat(array_pool)
 
 
 _prepare_workloads()

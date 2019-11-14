@@ -38,7 +38,7 @@ __all__ = ['zeros', 'ones', 'full', 'add', 'subtract', 'multiply', 'divide', 'mo
            'std', 'var', 'indices', 'copysign', 'ravel', 'hanning', 'hamming', 'blackman', 'flip',
            'around', 'hypot', 'rad2deg', 'deg2rad', 'unique', 'lcm', 'tril', 'identity', 'take',
            'ldexp', 'vdot', 'inner', 'outer', 'equal', 'not_equal', 'greater', 'less', 'greater_equal', 'less_equal',
-           'hsplit', 'rot90', 'einsum', 'true_divide', 'nonzero']
+           'hsplit', 'rot90', 'einsum', 'true_divide', 'nonzero','diagflat']
 
 
 @set_module('mxnet.ndarray.numpy')
@@ -4909,3 +4909,56 @@ def nonzero(a):
     """
     out = _npi.nonzero(a).transpose()
     return tuple([out[i] for i in range(len(out))])
+
+@set_module('mxnet.ndarray.numpy')
+def diagflat(arr,axis = 0):
+    """
+    Create a two-dimensional array with the flattened input as a diagonal.
+    Parameters: 
+    
+    v : array_like
+    
+    Input data, which is flattened and set as the k-th diagonal of the output.
+    k : int, optional
+    
+    Diagonal to set; 0, the default, corresponds to the “main” diagonal, a positive (negative) k giving the number of the diagonal above (below) the main.
+    
+    Returns:    
+    
+    out : ndarray
+    
+    The 2-D output array.
+
+    Notes
+    -----
+    Object type is not supported in this function
+    
+    Examples
+    --------
+    >>> x = [[1,2,3]]
+    >>> diagflat(x) = [[1,0,0],
+                    [0,2,0],
+                    [0,0,3]]
+    >>> diagflat(x,k=1) = [[0,1,0,0],
+                        [[0,0,2,0],
+                        [[0,0,0,3]]]
+    >>> diagflat(x,k=-1) = [[0,0,0,0],
+                        [1,0,0,0],
+                        [0,2,0,0],
+                        [0,0,3,0]]
+    >>> x = [[1,2],[3,4]]
+    >>> diagflat(x) = [[1,0,0,0],
+                    [0,2,0,0],
+                    [0,0,3,0],
+                    [0,0,0,4]]
+    >>> x = [[[1,2],[3,4]],[[5,6],[7,8]]]
+    >>> diagflat(x) = [[1,0,0,0,0,0,0,0],
+                    [0,2,0,0,0,0,0,0],
+                    [0,0,3,0,0,0,0,0],
+                    [0,0,0,4,0,0,0,0],
+                    [0,0,0,0,5,0,0,0],
+                    [0,0,0,0,0,6,0,0],
+                    [0,0,0,0,0,0,7,0],
+                    [0,0,0,0,0,0,0,8]]
+    """
+    return _npi_.diagflat(arr,k = axis)
