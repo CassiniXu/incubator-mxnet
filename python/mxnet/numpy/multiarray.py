@@ -55,7 +55,7 @@ __all__ = ['ndarray', 'empty', 'array', 'zeros', 'ones', 'full', 'add', 'subtrac
            'swapaxes', 'clip', 'argmax', 'argmin', 'std', 'var', 'indices', 'copysign', 'ravel', 'hanning', 'hamming',
            'blackman', 'flip', 'around', 'arctan2', 'hypot', 'rad2deg', 'deg2rad', 'unique', 'lcm', 'tril',
            'identity', 'take', 'ldexp', 'vdot', 'inner', 'outer', 'equal', 'not_equal', 'greater', 'less',
-           'greater_equal', 'less_equal', 'hsplit', 'rot90', 'einsum', 'true_divide', 'nonzero','diagflat']
+           'greater_equal', 'less_equal', 'hsplit', 'rot90', 'einsum', 'true_divide', 'nonzero', 'diagflat']
 
 # Return code for dispatching indexing function call
 _NDARRAY_UNSUPPORTED_INDEXING = -1
@@ -6822,7 +6822,7 @@ def einsum(*operands, **kwargs):
     return _mx_nd_np.einsum(*operands, **kwargs)
 
 @set_module('mxnet.numpy')
-def diagflat(arr,k = 0):
+def diagflat(arr, k=0):
     """
     Create a two-dimensional array with the flattened input as a diagonal.
     Parameters: 
@@ -6872,7 +6872,7 @@ def diagflat(arr,k = 0):
                     [0,0,0,0,0,0,7,0],
                     [0,0,0,0,0,0,0,8]]
     """
-    return _npi.diagflat(arr,k = k)
+    return _npi.diagflat(arr, k=k)
 
 
 

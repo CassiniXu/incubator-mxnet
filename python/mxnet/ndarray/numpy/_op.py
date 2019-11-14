@@ -38,7 +38,7 @@ __all__ = ['zeros', 'ones', 'full', 'add', 'subtract', 'multiply', 'divide', 'mo
            'std', 'var', 'indices', 'copysign', 'ravel', 'hanning', 'hamming', 'blackman', 'flip',
            'around', 'hypot', 'rad2deg', 'deg2rad', 'unique', 'lcm', 'tril', 'identity', 'take',
            'ldexp', 'vdot', 'inner', 'outer', 'equal', 'not_equal', 'greater', 'less', 'greater_equal', 'less_equal',
-           'hsplit', 'rot90', 'einsum', 'true_divide', 'nonzero','diagflat']
+           'hsplit', 'rot90', 'einsum', 'true_divide', 'nonzero', 'diagflat']
 
 
 @set_module('mxnet.ndarray.numpy')
@@ -4911,7 +4911,7 @@ def nonzero(a):
     return tuple([out[i] for i in range(len(out))])
 
 @set_module('mxnet.ndarray.numpy')
-def diagflat(arr,k = 0):
+def diagflat(arr, k=0):
     """
     Create a two-dimensional array with the flattened input as a diagonal.
     Parameters: 
@@ -4961,4 +4961,4 @@ def diagflat(arr,k = 0):
                     [0,0,0,0,0,0,7,0],
                     [0,0,0,0,0,0,0,8]]
     """
-    return _npi.diagflat(arr,k = k)
+    return _npi.diagflat(arr, k=k)
