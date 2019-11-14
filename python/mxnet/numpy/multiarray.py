@@ -6822,7 +6822,7 @@ def einsum(*operands, **kwargs):
     return _mx_nd_np.einsum(*operands, **kwargs)
 
 @set_module('mxnet.numpy')
-def diagflat(arr,axis = 0):
+def diagflat(arr,k = 0):
     """
     Create a two-dimensional array with the flattened input as a diagonal.
     Parameters: 
@@ -6872,7 +6872,7 @@ def diagflat(arr,axis = 0):
                     [0,0,0,0,0,0,7,0],
                     [0,0,0,0,0,0,0,8]]
     """
-    return _npi.diagflat(arr,k = axis)
+    return _npi.diagflat(arr,k = k)
 
 
 

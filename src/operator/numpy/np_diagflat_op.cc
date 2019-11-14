@@ -59,7 +59,7 @@ Examples::
 .set_attr<mxnet::FInferShape>("FInferShape", NumpyDiagflatOpShape)
 .set_attr<nnvm::FInferType>("FInferType", NumpyDiagflatOpType)
 .set_attr<FCompute>("FCompute<cpu>",NumpyDiagflatOpForward<cpu>)
-.set_attr<nnvm::FGradient>("FGradient",ElemwiseGradUseNone{"_backward_np_diagflat"})
+.set_attr<nnvm::FGradient>("FGradient",ElemwiseGradUseNone{"_backward_npi_diagflat"})
 .add_argument("data","NDArray-or-Symbol","Input ndarray")
 .add_arguments(NumpyDiagflatParam::__FIELDS__());
 

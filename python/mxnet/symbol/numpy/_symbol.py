@@ -4464,7 +4464,7 @@ def rot90(m, k=1, axes=(0, 1)):
 
 
 @set_module('mxnet.ndarray.numpy')
-def diagflat(arr,axis = 0):
+def diagflat(arr,k = 0):
     """
     Create a two-dimensional array with the flattened input as a diagonal.
     Parameters: 
@@ -4514,7 +4514,7 @@ def diagflat(arr,axis = 0):
                     [0,0,0,0,0,0,7,0],
                     [0,0,0,0,0,0,0,8]]
     """
-    return _npi_.diagflat(arr,k = axis)
+    return _npi.diagflat(arr,k = k)
 
 
 
