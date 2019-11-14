@@ -1,4 +1,4 @@
-#include "./np_dagflat_op-inl.h"
+#include "./np_diagflat_op-inl.h"
 
 namespace mxnet{
 namespace op{
